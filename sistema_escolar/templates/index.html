@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Escolar</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div id="login-container">
+        <div id="login-form">
+            <h2>Login</h2>
+            <input type="text" id="username" placeholder="Username">
+            <input type="password" id="password" placeholder="Password">
+            <button onclick="login()">Login</button>
+            <p id="login-message"></p>
+        </div>
+    </div>
+    <div id="main-container" style="display: none;">
+        <nav>
+            <button onclick="showTab('presence')">Presença</button>
+            <button onclick="showTab('observations')">Observação</button>
+            <button onclick="showTab('activities')">Atividade Aplicada</button>
+            <button onclick="showTab('report')">Emitir Relatório da Turma</button>
+        </nav>
+        <div id="presence" class="tab" style="display:none;">
+            <h2>Registro de Presença</h2>
+            <div id="presence-form"></div>
+            <button onclick="savePresence()">Salvar Presença</button>
+        </div>
+        <div id="observations" class="tab" style="display:none;">
+            <h2>Observações</h2>
+            <div id="observations-form"></div>
+            <button onclick="saveObservations()">Salvar Observações</button>
+        </div>
+        <div id="activities" class="tab" style="display:none;">
+            <h2>Atividades Aplicadas</h2>
+            <div id="activities-form"></div>
+            <button onclick="saveActivities()">Salvar Atividades</button>
+        </div>
+        <div id="report" class="tab" style="display:none;">
+            <h2>Relatório da Turma</h2>
+            <canvas id="report-chart"></canvas>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
